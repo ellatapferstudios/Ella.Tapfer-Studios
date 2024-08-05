@@ -1,0 +1,42 @@
+---
+const {
+  title = "About",
+  description = "###",
+  featuredImage = "../../assets/placeholder-square.webp",
+} = Astro.props;
+
+import Layout from "../layouts/BaseLayout.astro";
+---
+
+<Layout title={title} description={description} featuredImage={featuredImage}>
+  <main class="column">
+    <h1>About</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo
+      integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu
+      turpis egestas pretium. Euismod <a href="#">elementum</a> nisi quis eleifend
+      quam adipiscing. In hac habitasse platea dictumst <a href="#"
+        >vestibulum</a
+      >. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis
+      egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum
+      lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst
+      quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst
+      quisque sagittis purus sit amet.
+    </p>
+
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo
+      integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu
+      turpis egestas pretium. Euismod <a href="#">elementum</a> nisi quis eleifend
+      quam adipiscing. In hac habitasse platea dictumst <a href="#"
+        >vestibulum</a
+      >. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis
+      egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum
+      lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst
+      quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst
+      quisque sagittis purus sit amet.
+    </p>
+  </main>
+</Layout>

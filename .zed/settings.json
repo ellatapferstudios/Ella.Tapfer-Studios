@@ -1,0 +1,10 @@
+// Folder-specific settings
+//
+// For a full list of overridable settings, and general information on folder-specific settings,
+// see the documentation: https://zed.dev/docs/configuring-zed#folder-specific-settings
+{
+  "soft_wrap": "editor_width",
+  // The column at which to soft-wrap lines, for buffers where soft-wrap
+  // is enabled.
+  "preferred_line_length": 80
+}

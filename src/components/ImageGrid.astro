@@ -1,0 +1,52 @@
+---
+import { Image } from "astro:assets";
+import "../styles/image-grid.css";
+const { posts } = Astro.props;
+---
+
+<div class="grid">
+  {
+    posts.map((post) => (
+      <article>
+        <a href={`/${post.collection}/${post.slug}/`}>
+          <Image
+            src={post.data.featuredImage}
+            alt={post.data.title + " - " + post.data.description}
+            widths={[560, 960, post.data.featuredImage.width]}
+            sizes={`(min-width: 1400px) 28.69vw, (min-width: 840px) 43.52vw, 90vw`}
+          />
+        </a>
+        <a href={`/${post.collection}/${post.slug}/`}>
+          <h2>{post.data.title}</h2>
+        </a>
+        <p>{post.data.description}</p>
+      </article>
+    ))
+  }
+</div>
+<script>
+  const articles = document.querySelectorAll("article");
+  const section_headings = document.querySelectorAll("h2");
+  const archive_links = document.querySelectorAll(".archive-link");
+
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.1,
+  };
+
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+  function observerCallback(el) {
+    el.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove("off-screen");
+        entry.target.classList.add("in-view");
+      }
+    });
+  }
+
+  articles.forEach((el) => observer.observe(el));
+  section_headings.forEach((el) => observer.observe(el));
+  archive_links.forEach((el) => observer.observe(el));
+</script>

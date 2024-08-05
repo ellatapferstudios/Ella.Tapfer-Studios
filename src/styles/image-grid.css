@@ -1,0 +1,139 @@
+.grid {
+    display: grid;
+    grid-gap: 28px;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.grid article {
+    margin-bottom: 1.5em;
+    opacity: 0;
+    transform: translateY(45px);
+    transition:
+        transform 0.6s,
+        opacity 0.9s;
+}
+
+@media only screen and (min-width: 760px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 3vw;
+    }
+}
+
+@media only screen and (min-width: 1300px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 2vw;
+    }
+}
+
+.grid h2,
+.grid h3 {
+    font-size: clamp(1.125rem, 1.0962rem + 0.1231vw, 1.25rem);
+    font-weight: 400;
+    margin: 0;
+    transition: opacity 0.3s;
+    display: block;
+    padding: 0.5em 0 0.25em 0;
+}
+
+.grid h2:hover,
+.grid h3:hover {
+    opacity: 0.5;
+}
+
+.grid p {
+    font-size: clamp(0.9375rem, 0.9087rem + 0.1231vw, 1.0625rem);
+    padding-right: 2vw;
+    margin: 0.25em 0 0 0;
+}
+
+.grid a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--dark);
+}
+
+.grid a:has(img) {
+    border-radius: 1em;
+    display: block;
+    margin-bottom: 0.5em;
+    line-height: 0;
+}
+
+.grid a:has(h2),
+.grid a:has(h3) {
+    border-radius: 10px;
+    outline-offset: 4px 0.25em;
+}
+
+.grid a:has(img) {
+    transition: transform 0.3s;
+}
+
+.grid a:has(img):hover {
+    transform: scale(1.02);
+}
+
+.grid .in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Note
+----------------------------- */
+
+.note {
+    background: rgba(0, 0, 0, 0.8);
+    display: inline-block;
+    padding: 0.5em 0.8em;
+    position: absolute;
+    font-size: 1.125em;
+    font-weight: 800;
+    top: 22px;
+    right: 12px;
+    border-radius: 5px;
+    -webkit-box-shadow: 4px 4px 10px -3px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 4px 4px 10px -3px rgba(0, 0, 0, 0.6);
+    box-shadow: 4px 4px 10px -3px rgba(0, 0, 0, 0.6);
+    color: #fff;
+    line-height: 1;
+    /* border: 3px solid #fff; */
+}
+
+.currency {
+    font-size: 0.75em;
+}
+[color-scheme="dark"] .note {
+    color: var(--dark-text-color);
+}
+
+/* Archive Link
+----------------------------- */
+.archive-link {
+    margin: 3em 0;
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(45px);
+    font-size: clamp(0.9375rem, 0.9087rem + 0.1231vw, 1.0625rem);
+    transition:
+        transform 0.6s,
+        opacity 0.9s;
+}
+
+.archive-link.in-view:hover {
+    opacity: 0.2;
+}
+
+.archive-link.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.archive-link::before {
+    content: "-> ";
+}
+
+[color-scheme="dark"] .archive-link {
+    color: var(--dark-text-color);
+}

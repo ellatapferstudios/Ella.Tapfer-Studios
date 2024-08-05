@@ -1,0 +1,15 @@
+---
+const {
+  title = "Example Title",
+  description = "Example description.",
+  featuredImage = "../../assets/placeholder-square.webp",
+} = Astro.props;
+
+import Layout from "../layouts/BaseLayout.astro";
+---
+
+<Layout title={title} description={description} featuredImage={featuredImage}>
+  <article class="post">
+    <p>Hello!</p>
+  </article>
+</Layout>

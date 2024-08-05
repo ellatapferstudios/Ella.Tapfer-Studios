@@ -1,0 +1,63 @@
+* {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  line-height: 1.6;
+  font-size: clamp(0.9375rem, 0.8625rem + 0.4vw, 1.0625rem);
+}
+
+img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+
+article img {
+  margin: 0.5em 0;
+}
+
+a {
+  color: #555;
+}
+
+.column {
+  width: 90%;
+  max-width: 960px;
+  margin: 2em auto;
+}
+.date {
+  font-size: 0.875em;
+  margin-bottom: 2em;
+}
+
+/*
+Screen Reader Only
+- used to hide text for icon link
+*/
+
+.sr-only {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+  clip: rect(1px 1px 1px 1px);
+  /* maybe deprecated but we need to support legacy browsers */
+  clip: rect(1px, 1px, 1px, 1px);
+  /* modern browsers, clip-path works inwards from each corner */
+  clip-path: inset(50%);
+  /* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
+  white-space: nowrap;
+}

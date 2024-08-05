@@ -1,0 +1,53 @@
+---
+import Layout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import ImageGrid from "../../components/ImageGrid.astro";
+import { Image } from "astro:assets";
+
+const {
+  title = "Projects",
+  description = "Projects description.",
+  featuredImage = "./../images/placeholder-square.webp",
+  posts = await getCollection("projects"),
+} = Astro.props;
+
+// Sort posts by updateDate if available, otherwise by pubDate
+const sortedPosts = posts.sort((a, b) => {
+  const dateA = a.data.updatedDate || a.data.pubDate;
+  const dateB = b.data.updatedDate || b.data.pubDate;
+  return new Date(dateB) - new Date(dateA);
+});
+---
+
+<Layout title={title} description={description} featuredImage={featuredImage}>
+  <ImageGrid posts={sortedPosts} />
+
+  <!-- <section>
+    <ul>
+      {
+        sortedPosts.map((post) => (
+          <li>
+            <a href={`/projects/${post.slug}/`}>
+              <Image
+                width={720}
+                height={360}
+                src={post.data.featuredImage}
+                alt={post.data.description}
+              />
+              <h4 class="title">{post.data.title}</h4>
+            </a>
+          </li>
+        ))
+      }
+    </ul> -->
+</Layout>
+
+<style>
+  section li img {
+    width: 100%;
+  }
+  section {
+    width: 90%;
+    max-width: 900px;
+  }
+</style>
