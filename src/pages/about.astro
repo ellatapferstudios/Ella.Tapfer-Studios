@@ -9,8 +9,8 @@ import Layout from "../layouts/BaseLayout.astro";
 ---
 
 <Layout title={title} description={description} featuredImage={featuredImage}>
-  <main class="column">
-    <h1>About</h1>
+  <main class="standard-content-width">
+    <h1>About Me</h1>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo
@@ -40,3 +40,10 @@ import Layout from "../layouts/BaseLayout.astro";
     </p>
   </main>
 </Layout>
+<style>
+  h1 {
+    text-align: center;
+    margin-bottom: 1.25em;
+    font-size: 1.6em;
+  }
+</style>

@@ -1,0 +1,83 @@
+<button id="scroll-to-top" aria-label="Scroll to top">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    height="24px"
+    viewBox="0 0 24 24"
+    width="24px"
+    fill="#000000"
+  >
+    <path d="M0 0h24v24H0V0z" fill="none"></path>
+    <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"
+    ></path>
+  </svg>
+</button>
+<style>
+  #scroll-to-top {
+    background: 0;
+    position: fixed;
+    bottom: 0.35em;
+    right: 0.35em;
+    font-size: 2em;
+    padding: 0.2em;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-direction: row;
+    border-radius: 50%;
+    border: 1px solid #eee;
+    transition: 0.3s;
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.92);
+    opacity: 0;
+    pointer-events: none;
+    cursor: pointer;
+  }
+
+  @media only screen and (min-width: 500px) {
+    #scroll-to-top {
+      bottom: 0.5em;
+      right: 0.5em;
+    }
+  }
+
+  @media only screen and (min-width: 800px) {
+    #scroll-to-top {
+      bottom: 1em;
+      right: 1em;
+    }
+  }
+
+  #scroll-to-top.enabled {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  #scroll-to-top:hover {
+    border-color: #888;
+    transform: scale(1.125);
+  }
+
+  #scroll-to-top svg {
+    fill: #111;
+    width: 24px;
+    height: 24px;
+  }
+</style>
+<script>
+  const scroll_to_top_button = document.getElementById("scroll-to-top");
+
+  scroll_to_top_button.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 200) {
+      scroll_to_top_button.classList.add("enabled");
+    } else {
+      scroll_to_top_button.classList.remove("enabled");
+    }
+  });
+</script>

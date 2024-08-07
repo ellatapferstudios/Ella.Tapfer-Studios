@@ -4,7 +4,7 @@ import "../styles/image-grid.css";
 const { posts } = Astro.props;
 ---
 
-<div class="grid">
+<div class="image-grid">
   {
     posts.map((post) => (
       <article>
@@ -17,7 +17,7 @@ const { posts } = Astro.props;
           />
         </a>
         <a href={`/${post.collection}/${post.slug}/`}>
-          <h2>{post.data.title}</h2>
+          <h3>{post.data.title}</h3>
         </a>
         <p>{post.data.description}</p>
       </article>
@@ -40,7 +40,6 @@ const { posts } = Astro.props;
   function observerCallback(el) {
     el.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.remove("off-screen");
         entry.target.classList.add("in-view");
       }
     });

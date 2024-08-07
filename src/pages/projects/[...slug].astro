@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import Post from "../../layouts/Post.astro";
+import Post from "../../layouts/Project.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("projects");
@@ -12,8 +12,68 @@ export async function getStaticPaths() {
 
 const post = Astro.props;
 const { Content } = await post.render();
+
+// Extract the slug from the post's props
+const { slug } = post;
+
+// Render the content of the current post
+const posts = await getCollection("projects");
+
+// Sort posts by updateDate if available, otherwise by pubDate
+const sortedPosts = posts.sort((a, b) => {
+  const dateA = a.data.updatedDate || a.data.pubDate;
+  const dateB = b.data.updatedDate || b.data.pubDate;
+  return new Date(dateB) - new Date(dateA);
+});
+
+// Find the index of the current post
+const currentIndex = sortedPosts.findIndex((post) => post.slug === slug);
+
+// Determine the next and previous posts
+const prevPost = sortedPosts[currentIndex + 1];
+const nextPost = sortedPosts[currentIndex - 1];
 ---
 
 <Post {...post.data}>
   <Content />
+  <hr />
+  <nav class="post-navigation">
+    {
+      prevPost && (
+        <a href={`/projects/${prevPost.slug}/`} class="previous">
+          Previous Project
+        </a>
+      )
+    }
+    {
+      nextPost && (
+        <a href={`/projects/${nextPost.slug}/`} class="next">
+          Next Project
+        </a>
+      )
+    }
+
+    <!-- {
+      prevPost && (
+        <div class="next-previous-link">
+          <h4>Next Project:</h4>
+          <a href={`/projects/${prevPost.slug}/`} aria-label="Previous post">
+            <h5>{prevPost.data.title}</h5>
+            <p>{prevPost.data.description}</p>
+          </a>
+        </div>
+      )
+    }
+    {
+      nextPost && (
+        <div class="next-previous-link">
+          <h4>Previous Project:</h4>
+          <a href={`/projects/${nextPost.slug}/`} aria-label="Next post">
+            <h5>{nextPost.data.title}</h5>
+            <p>{nextPost.data.description}</p>
+          </a>
+        </div>
+      )
+    } -->
+  </nav>
 </Post>

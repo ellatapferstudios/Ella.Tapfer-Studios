@@ -7,7 +7,7 @@ const {
   title = "Blog",
   description = "Blog description.",
   featuredImage = "./../images/placeholder-square.webp",
-  posts = await getCollection("blog")
+  posts = await getCollection("blog"),
 } = Astro.props;
 
 // Sort posts by updateDate if available, otherwise by pubDate
@@ -19,21 +19,70 @@ const sortedPosts = posts.sort((a, b) => {
 ---
 
 <Layout title={title} description={description} featuredImage={featuredImage}>
-  <section>
-    <ul>
-      {
-        sortedPosts.map((post) => (
-          <li>
-            <a href={`/blog/${post.slug}/`}>
-              <!-- <img width={720} height={360} src={post.data.image} alt="" /> -->
-              <h4 class="title">{post.data.title}</h4>
-              <p class="date">
-                <FormattedDate date={post.data.pubDate} />
-              </p>
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </section>
+  <main class="blog-list">
+    <h1 class="sr-only">Posts</h1>
+    {
+      sortedPosts.map((post) => (
+        <article>
+          <a href={`/blog/${post.slug}/`}>
+            <h3 class="title">{post.data.title}</h3>
+            <p class="date">
+              <FormattedDate date={post.data.pubDate} />
+            </p>
+            <p class="description">{post.data.description}</p>
+          </a>
+        </article>
+      ))
+    }
+  </main>
 </Layout>
+
+<style>
+  .blog-list {
+    width: 90%;
+    max-width: 640px;
+    margin: 5em auto;
+  }
+
+  .blog-list article {
+    margin-bottom: 3em;
+    border-radius: 0.75em;
+  }
+
+  .blog-list h3 {
+    margin: 0 0 0.25em 0;
+    font-size: 1.5em;
+    line-height: 1.4;
+    display: inline;
+    transition: border 0.3s; */
+  }
+
+  .blog-list article:hover a h3 {
+    border-bottom: 2px solid rgba(0, 0, 0, 1);
+  }
+
+  .blog-list article:hover a p {
+    color: #444;
+    transition: color .3s;
+  }
+
+  .blog-list a {
+    text-decoration: none;
+    display: block;
+    color: #444
+  }
+
+  .blog-list a h3 {
+    color: #111;
+  }
+
+  .blog-list .description {
+    margin: 0.75em 0 0 0;
+  }
+
+  .blog-list .date {
+    text-transform: uppercase;
+    font-size: 0.75em;
+    margin: 0.75em 0 0 0;
+  }
+</style>

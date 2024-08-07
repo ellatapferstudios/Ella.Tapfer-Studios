@@ -10,10 +10,72 @@ export async function getStaticPaths() {
   }));
 }
 
+// Get the current post's props
 const post = Astro.props;
+
+// Extract the slug from the post's props
+const { slug } = post;
+
+// Render the content of the current post
 const { Content } = await post.render();
+
+const posts = await getCollection("blog");
+
+// Sort posts by updateDate if available, otherwise by pubDate
+const sortedPosts = posts.sort((a, b) => {
+  const dateA = a.data.updatedDate || a.data.pubDate;
+  const dateB = b.data.updatedDate || b.data.pubDate;
+  return new Date(dateB) - new Date(dateA);
+});
+
+// Find the index of the current post
+const currentIndex = sortedPosts.findIndex((post) => post.slug === slug);
+
+// Determine the next and previous posts
+const prevPost = sortedPosts[currentIndex + 1];
+const nextPost = sortedPosts[currentIndex - 1];
 ---
 
 <Post {...post.data}>
   <Content />
+  <hr />
+  <nav class="post-navigation">
+    {
+      prevPost && (
+        <a href={`/blog/${prevPost.slug}/`} class="previous">
+          Previous Post
+        </a>
+      )
+    }
+    {
+      nextPost && (
+        <a href={`/blog/${nextPost.slug}/`} class="next">
+          Next Post
+        </a>
+      )
+    }
+
+    <!-- {
+      prevPost && (
+        <div class="next-previous-link">
+          <h4>Next Post:</h4>
+          <a href={`/blog/${prevPost.slug}/`} aria-label="Previous post">
+            <h5>{prevPost.data.title}</h5>
+            <p>{prevPost.data.description}</p>
+          </a>
+        </div>
+      )
+    }
+    {
+      nextPost && (
+        <div class="next-previous-link">
+          <h4>Previous Post:</h4>
+          <a href={`/blog/${nextPost.slug}/`} aria-label="Next post">
+            <h5>{nextPost.data.title}</h5>
+            <p>{nextPost.data.description}</p>
+          </a>
+        </div>
+      )
+    } -->
+  </nav>
 </Post>

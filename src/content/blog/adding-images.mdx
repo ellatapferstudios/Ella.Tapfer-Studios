@@ -1,0 +1,47 @@
+---
+title: 'Adding Images'
+description: 'Learn how to add images to your posts.'
+pubDate: 'Aug 4 2024'
+featuredImage: ../../assets/placeholder-square.webp
+---
+
+Here is demonstration using our custom image component. The following lines of code will not appear in the front end.
+
+First we need to import the general image component, being sure to keep empty lines before an after the following code:
+
+import Image from "../../components/Image.astro";
+
+Then we create a specific image reference being sure to give it a unique name:
+
+import myFirstImage from "/src/assets/placeholder-hd.webp";
+
+Then we can use use the image component with our specific reference like so:
+
+<Image path={myFirstImage} alt="Image alt text goes here"/>
+
+Now you should see the image in the front-end.
+
+To make sure we meet accessiblity requirements the alt tag is a included as part of the image component. Also, if by chance you want the image to also link somewhere, just include link="..." as in the following example.
+
+Here, to add another image we need to create another unique reference, eg:
+
+import mySecondImage from "/src/assets/placeholder-square.webp";
+
+And then:
+
+<Image path={mySecondImage} alt="Image alt text goes here" link="https://astro-sky.vercel.app/"/>
+
+Now in the front end you should see an image with a link.
+
+## Youtube Embed
+
+Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi.
+
+Here is an example horizontal rule...
+
+---
+
+
+Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
+
+Otherwise I hope this helps you better understand how to develop your content using Markdown and MDX.

@@ -1,15 +1,160 @@
 ---
+import Layout from "../layouts/BaseLayout.astro";
+import ImageGrid from "../components/ImageGrid.astro";
+import { getCollection } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
+
 const {
-  title = "Example Title",
-  description = "Example description.",
+  title = "Site Title",
+  description = "Diam a dis libero condimentum adipiscing natoque odio sagittis tincidunt justo condimentum aliquet tincidunt ante accumsan praesent parturient.",
   featuredImage = "../../assets/placeholder-square.webp",
+  projects = await getCollection("projects"),
+  posts = await getCollection("blog"),
 } = Astro.props;
 
-import Layout from "../layouts/BaseLayout.astro";
+// Sort posts by updateDate if available, otherwise by pubDate
+const sortedProjects = projects
+  .sort((a, b) => {
+    const dateA = a.data.updatedDate || a.data.pubDate;
+    const dateB = b.data.updatedDate || b.data.pubDate;
+    return new Date(dateB) - new Date(dateA);
+  })
+  .slice(0, 6); // limit to 6
+
+const sortedPosts = posts
+  .sort((a, b) => {
+    const dateA = a.data.updatedDate || a.data.pubDate;
+    const dateB = b.data.updatedDate || b.data.pubDate;
+    return new Date(dateB) - new Date(dateA);
+  })
+  .slice(0, 3); // limit to 3
 ---
 
 <Layout title={title} description={description} featuredImage={featuredImage}>
-  <article class="post">
-    <p>Hello!</p>
-  </article>
+  <main class="full-width-content">
+    <h1 class="sr-only">{title}</h1>
+    <p class="intro-text">{description}</p>
+    <section>
+      <h2>Latest Projects:</h2>
+      <ImageGrid posts={sortedProjects} />
+      <p><a href="./projects" class="section-link">View All Projects</a></p>
+    </section>
+
+    <section>
+      <h2>Latest Posts:</h2>
+      <div class="blog-list">
+      {
+        sortedPosts.map((post) => (
+          <article>
+            <a href={`/blog/${post.slug}/`}>
+              <h3 class="title">{post.data.title}</h3>
+              <p class="date">
+                <FormattedDate date={post.data.pubDate} />
+              </p>
+              <p class="description">{post.data.description}</p>
+            </a>
+          </article>
+        ))
+      }
+      </div>
+        <p><a href="./blog" class="section-link">View All Posts</a></p>
+    </section>
+  </main>
 </Layout>
+<style>
+  .intro-text {
+    font-family: "EB Garamond", serif;
+    font-optical-sizing: auto;
+    font-weight: 440;
+    font-style: normal;
+    font-size: clamp(1.5rem, 1.0385rem + 2.4615vw, 3.5rem);
+    line-height: 1.2;
+    color: #111;
+    margin: 2em 0 1.5em 0;
+    max-width: 1400px;
+    padding-right: 0.5em;
+  }
+
+  h2 {
+    font-size: .875em;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  section {
+      margin-bottom: 5em;
+  }
+
+  .section-link {
+      color:#111;
+      font-weight: 650;
+      text-decoration: none;
+      font-size: .875em;
+      transition: opacity .3s;
+      padding: .25em 0;
+  }
+
+  .section-link::before {
+      content: "-> "
+  }
+
+  .section-link:hover {
+      opacity: .5;
+  }
+
+  .blog-list {
+   margin-top: 3em;
+   max-width: 500px;
+  }
+
+  .blog-list article {
+    margin-bottom: 3em;
+    border-radius: 0.75em;
+    transition:
+      border 0.3s,
+      transform 0.3s;
+  }
+
+  .blog-list article:hover {
+    border-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .blog-list h3 {
+    margin: 0 0 0.25em 0;
+    font-size: 1.25em;
+    line-height: 1.4;
+    display: inline;
+    transition: border 0.3s; */
+  }
+
+  .blog-list article:hover a h3 {
+    border-bottom: 2px solid rgba(0, 0, 0, 1);
+  }
+
+  .blog-list article:hover a p {
+    color: #444;
+    transition: color .3s;
+  }
+
+  .blog-list a {
+    text-decoration: none;
+    display: block;
+    color: #444
+  }
+
+  .blog-list a h3 {
+    color: #111;
+  }
+
+  .blog-list .description {
+    margin: 0.75em 0 0 0;
+  }
+
+  .blog-list .date {
+    text-transform: uppercase;
+    font-size: 0.75em;
+    margin: 0.75em 0 0 0;
+  }
+
+</style>

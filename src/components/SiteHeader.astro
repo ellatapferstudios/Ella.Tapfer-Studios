@@ -1,8 +1,5 @@
 ---
-const { title, description, image } = Astro.props;
-
 import HeaderLink from "./HeaderLink.astro";
-// import { SITE_TITLE } from "../consts";
 ---
 
 <header class="site-header">
@@ -18,9 +15,12 @@ import HeaderLink from "./HeaderLink.astro";
 <style>
   .site-header {
     margin: 0;
-    padding: 0 1em;
-    padding: 1em 1em;
-    font-size: clamp(0.9375rem, 0.8625rem + 0.4vw, 1.0625rem);
+    padding: 1em 5%;
+    font-size: 0.75em;
+    /* font-size: clamp(0.75rem, 0.7067rem + 0.2308vw, 0.9375rem); */
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 500;
   }
 
   nav {
@@ -29,21 +29,20 @@ import HeaderLink from "./HeaderLink.astro";
     justify-content: space-between;
   }
 
-  .site-title {
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
   nav a {
-    padding: 0.5em;
-  }
-
-  a {
+    color: #555;
     display: inline-block;
     text-decoration: none;
+    text-underline-offset: 0.5em;
+    padding: 0.5em;
+    transition: opacity 0.3s;
   }
 
-  a.active {
-    opacity: 0.5;
+  nav a:hover {
+    opacity: 0.4;
+  }
+
+  nav a.active {
+    text-decoration: underline;
   }
 </style>

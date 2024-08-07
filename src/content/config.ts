@@ -12,4 +12,7 @@ const postsCollection = defineCollection({
     }),
 });
 
-export const collections = { blog: postsCollection, projects: postsCollection };
+export const collections = {
+  blog: postsCollection,
+  projects: postsCollection,
+};

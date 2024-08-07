@@ -1,8 +1,8 @@
 ---
 import Header from "../components/SiteHeader.astro";
 import Footer from "../components/SiteFooter.astro";
+import ScrollToTopButton from "../components/ScrollToTopButton.astro";
 import "../styles/global.css";
-//import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 const { title, description, featuredImage } = Astro.props;
 ---
@@ -37,8 +37,16 @@ const { title, description, featuredImage } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Inter Sans Serif Variable Font -->
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- EB Garamond Serif Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:opsz,wght@14..32,100..900&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -48,5 +56,56 @@ const { title, description, featuredImage } = Astro.props;
       <slot />
     </main>
     <Footer />
+    <ScrollToTopButton />
+    <!-- <button id="scroll-to-top" aria-label="Scroll to top">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        fill="#000000"
+        ><path d="M0 0h24v24H0V0z" fill="none"></path><path
+          d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"
+        ></path></svg
+      >
+    </button> -->
+    <!-- <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const scroll_to_top_button = document.getElementById("scroll-to-top");
+
+        scroll_to_top_button.addEventListener("click", () => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 200) {
+            scroll_to_top_button.classList.add("enabled");
+          } else {
+            scroll_to_top_button.classList.remove("enabled");
+          }
+        });
+      });
+    </script> -->
   </body>
 </html>
+<!-- <script>
+  const scroll_to_top_button = document.getElementById("scroll-to-top");
+
+  scroll_to_top_button.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 200) {
+      scroll_to_top_button.classList.add("enabled");
+    } else {
+      scroll_to_top_button.classList.remove("enabled");
+    }
+  });
+</script> -->
