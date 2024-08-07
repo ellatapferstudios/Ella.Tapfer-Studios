@@ -10,9 +10,7 @@ const { path, alt, link } = Astro.props;
         src={path}
         alt={alt}
         widths={[560, 980, 1200]}
-        sizes={`(min-width: 1280px) 980px,
-		(min-width: 720px) calc(70.37vw + 93px),
-		calc(83.25vw + 17px)`}
+        sizes={`(min-width: 1420px) 1200px, calc(84.55vw + 16px)`}
       />
     </a>
   ) : (
@@ -20,9 +18,7 @@ const { path, alt, link } = Astro.props;
       src={path}
       alt={alt}
       widths={[560, 980, 1200]}
-      sizes={`(min-width: 1280px) 980px,
-		(min-width: 720px) calc(70.37vw + 93px),
-		calc(83.25vw + 17px)`}
+      sizes={`(min-width: 1420px) 1200px, calc(84.55vw + 16px)`}
     />
   )
 }
