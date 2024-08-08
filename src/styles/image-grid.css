@@ -52,7 +52,7 @@
 .image-grid p {
   font-size: clamp(0.9375rem, 0.9087rem + 0.1231vw, 1.0625rem);
   font-size: 0.813em;
-  color: #777;
+  color: #555;
   padding-right: 2vw;
   margin: 0;
   max-width: 500px;
