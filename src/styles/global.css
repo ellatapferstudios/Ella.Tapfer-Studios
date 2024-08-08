@@ -13,13 +13,13 @@ and also by both the post, project and about page layouts.
 }
 
 /* eb-garamond-500 - latin */
-@font-face {
+/* @font-face {
   font-display: swap;
   font-family: "EB Garamond";
   font-style: normal;
   font-weight: 500;
   src: url("/fonts/eb-garamond-v27-latin-500.woff2") format("woff2");
-}
+} */
 
 /* inter-regular - latin */
 @font-face {
