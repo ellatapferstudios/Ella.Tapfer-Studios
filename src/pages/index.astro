@@ -8,10 +8,11 @@ import "../styles/home.css";
 const {
   title = "Astro Sky",
   description = "Welcome to Astro Sky. An elegant and streamlined Astro theme, built for artists, designers.",
-  featuredImage = "../assets/placeholder-square.webp",
   projects = await getCollection("projects"),
   posts = await getCollection("blog"),
 } = Astro.props;
+
+import featuredImage from "../assets/placeholder-square.webp";
 
 // Sort posts by updateDate if available, otherwise by pubDate
 const sortedProjects = projects

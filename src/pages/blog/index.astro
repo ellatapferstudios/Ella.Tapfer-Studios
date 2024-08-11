@@ -6,9 +6,10 @@ import FormattedDate from "../../components/FormattedDate.astro";
 const {
   title = "Blog",
   description = "Blog description.",
-  featuredImage = "./../assets/placeholder-square.webp",
   posts = await getCollection("blog"),
 } = Astro.props;
+
+import featuredImage from "../../assets/placeholder-square.webp";
 
 // Sort posts by updateDate if available, otherwise by pubDate
 const sortedPosts = posts.sort((a, b) => {

@@ -1,11 +1,8 @@
 ---
-const {
-  title = "About",
-  description = "About Astro Sky theme",
-  featuredImage = "../assets/placeholder-square.webp",
-} = Astro.props;
-
 import Layout from "../layouts/BaseLayout.astro";
+
+const { title = "About", description = "About Astro Sky theme" } = Astro.props;
+import featuredImage from "../assets/placeholder-square.webp";
 ---
 
 <Layout title={title} description={description} featuredImage={featuredImage}>

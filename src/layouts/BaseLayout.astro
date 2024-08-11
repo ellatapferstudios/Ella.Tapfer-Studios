@@ -20,15 +20,11 @@ const imageUrl =
     <meta name="title" content={title} />
     <meta name="description" content={description} />
 
-    <!-- ... -->
-
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={featuredImage.src} />
-
-    <!-- ... -->
 
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={Astro.url} />
@@ -36,20 +32,15 @@ const imageUrl =
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={featuredImage.src} />
 
-    <!-- ... -->
-
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-
-    <!-- ... -->
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate" type="application/rss+xml" href={"/rss.xml"} />
   </head>
   <body>
     <Header />
-    <p>{featuredImage}</p>
-    <p>{imageUrl}</p>
+
     <main>
       <slot />
     </main>

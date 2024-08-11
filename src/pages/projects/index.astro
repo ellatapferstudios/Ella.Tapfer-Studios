@@ -6,9 +6,10 @@ import ImageGrid from "../../components/ImageGrid.astro";
 const {
   title = "Projects",
   description = "Projects description.",
-  featuredImage = "./../assets/placeholder-square.webp",
   posts = await getCollection("projects"),
 } = Astro.props;
+
+import featuredImage from "../../assets/placeholder-square.webp";
 
 // Sort posts by updateDate if available, otherwise by pubDate
 const sortedProjects = posts.sort((a, b) => {
