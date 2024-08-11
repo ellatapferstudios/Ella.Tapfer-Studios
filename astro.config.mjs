@@ -6,6 +6,6 @@ export default defineConfig({
   site: "https://example.com",
   integrations: [mdx(), sitemap()],
   build: {
-    assets: "assets",
+    assets: "media",
   },
 });
