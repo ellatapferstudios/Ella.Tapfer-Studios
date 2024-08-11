@@ -6,9 +6,7 @@ import "../styles/global.css";
 
 const { title, description, featuredImage } = Astro.props;
 
-// Determine if `featuredImage` is an object or a string and handle accordingly
-const imageUrl =
-  typeof featuredImage === "string" ? featuredImage : featuredImage?.src || "";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
@@ -36,7 +34,13 @@ const imageUrl =
     <meta name="generator" content={Astro.generator} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate" type="application/rss+xml" href={"/rss.xml"} />
+
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      href={`${Astro.url}/rss.xml`}
+    />
+    <link rel="canonical" href={canonicalURL} />
   </head>
   <body>
     <Header />

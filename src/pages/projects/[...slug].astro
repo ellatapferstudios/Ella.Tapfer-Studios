@@ -39,6 +39,34 @@ const nextPost = sortedPosts[currentIndex - 1];
   <hr />
   <nav class="post-navigation">
     {
+      (() => {
+        if (nextPost) {
+          return (
+            <a href={`/projects/${nextPost.slug}/`} class="next">
+              Next Project
+            </a>
+          );
+        } else {
+          return <div />;
+        }
+      })()
+    }
+
+    {
+      (() => {
+        if (prevPost) {
+          return (
+            <a href={`/projects/${prevPost.slug}/`} class="previous">
+              Previous Project
+            </a>
+          );
+        } else {
+          return <div />;
+        }
+      })()
+    }
+
+    <!-- {
       prevPost && (
         <a href={`/projects/${prevPost.slug}/`} class="previous">
           Previous Project
@@ -51,7 +79,7 @@ const nextPost = sortedPosts[currentIndex - 1];
           Next Project
         </a>
       )
-    }
+    } -->
 
     <!-- {
       prevPost && (

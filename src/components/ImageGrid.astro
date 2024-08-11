@@ -13,7 +13,7 @@ const { posts } = Astro.props;
             src={post.data.featuredImage}
             alt={post.data.title + " - " + post.data.description}
             widths={[560, 960, post.data.featuredImage.width]}
-            sizes={`(min-width: 1400px) 28.69vw, (min-width: 840px) 43.52vw, 90vw`}
+            sizes="(min-width: 2120px) 599px, (min-width: 1300px) calc(26.25vw + 48px), (min-width: 540px) 45vw, 90vw"
           />
         </a>
         <a href={`/${post.collection}/${post.slug}/`}>

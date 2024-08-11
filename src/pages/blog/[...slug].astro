@@ -41,18 +41,31 @@ const nextPost = sortedPosts[currentIndex - 1];
   <hr />
   <nav class="post-navigation">
     {
-      prevPost && (
-        <a href={`/blog/${prevPost.slug}/`} class="previous">
-          Previous Post
-        </a>
-      )
+      (() => {
+        if (nextPost) {
+          return (
+            <a href={`/blog/${nextPost.slug}/`} class="next">
+              Next Post
+            </a>
+          );
+        } else {
+          return <div />;
+        }
+      })()
     }
+
     {
-      nextPost && (
-        <a href={`/blog/${nextPost.slug}/`} class="next">
-          Next Post
-        </a>
-      )
+      (() => {
+        if (prevPost) {
+          return (
+            <a href={`/blog/${prevPost.slug}/`} class="previous">
+              Previous Post
+            </a>
+          );
+        } else {
+          return <div />;
+        }
+      })()
     }
 
     <!-- {

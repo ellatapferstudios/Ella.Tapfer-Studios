@@ -1,0 +1,24 @@
+---
+import { Image } from "astro:assets";
+const { path, alt, link } = Astro.props;
+---
+
+{
+  link ? (
+    <a href={link}>
+      <Image
+        src={path}
+        alt={alt}
+        widths={[560, 980, 1200]}
+        sizes={`(min-width: 1000px) 840px, calc(83.82vw + 19px)`}
+      />
+    </a>
+  ) : (
+    <Image
+      src={path}
+      alt={alt}
+      widths={[560, 980, 1200]}
+      sizes={`(min-width: 1000px) 840px, calc(83.82vw + 19px)`}
+    />
+  )
+}

@@ -1,0 +1,20 @@
+---
+import Layout from "../layouts/BaseLayout.astro";
+// const { title, description, pubDate, featuredImage } = Astro.props;
+const { frontmatter } = Astro.props;
+---
+
+<Layout
+  title={frontmatter.title}
+  description={frontmatter.description}
+  featuredImage={frontmatter.featuredImage}
+>
+  <main class="standard-content-width">
+    <article>
+      <header>
+        <h1>{frontmatter.title}</h1>
+      </header>
+      <slot />
+    </article>
+  </main>
+</Layout>
