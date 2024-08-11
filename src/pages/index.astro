@@ -1,13 +1,14 @@
 ---
 import Layout from "../layouts/BaseLayout.astro";
 import ImageGrid from "../components/ImageGrid.astro";
-import { getCollection } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
+import { getCollection } from "astro:content";
 import "../styles/home.css";
 
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 const {
-  title = "Astro Sky",
-  description = "Welcome to Astro Sky. An elegant and streamlined Astro theme, built for artists, designers.",
+  title = SITE_TITLE,
+  description = SITE_DESCRIPTION,
   projects = await getCollection("projects"),
   posts = await getCollection("blog"),
 } = Astro.props;

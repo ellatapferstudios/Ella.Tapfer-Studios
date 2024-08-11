@@ -4,7 +4,7 @@ import "../styles/image-grid.css";
 const { posts } = Astro.props;
 ---
 
-<div class="image-grid">
+<!-- <div class="image-grid">
   {
     posts.map((post) => (
       <article>
@@ -23,11 +23,42 @@ const { posts } = Astro.props;
       </article>
     ))
   }
+</div> -->
+<div class="image-grid">
+  {
+    posts.map((post) => {
+      // Ensure the image path is treated as a string
+      const imagePath = "String(post.data.featuredImage)";
+      const isSvg = imagePath.endsWith(".svg");
+      const imageWidths = isSvg
+        ? [post.data.featuredImage.width]
+        : [560, 960, post.data.featuredImage.width];
+      const imageSizes = isSvg
+        ? `${post.data.featuredImage.width}px`
+        : "(min-width: 2120px) 599px, (min-width: 1300px) calc(26.25vw + 48px), (min-width: 540px) 45vw, 90vw";
+
+      return (
+        <article>
+          <a href={`/${post.collection}/${post.slug}/`}>
+            <Image
+              src={post.data.featuredImage}
+              alt={post.data.title + " - " + post.data.description}
+              widths={imageWidths}
+              sizes={imageSizes}
+            />
+          </a>
+          <a href={`/${post.collection}/${post.slug}/`}>
+            <h3>{post.data.title}</h3>
+          </a>
+          <p>{post.data.description}</p>
+        </article>
+      );
+    })
+  }
 </div>
+
 <script>
   const articles = document.querySelectorAll("article");
-  const section_headings = document.querySelectorAll("h2");
-  const archive_links = document.querySelectorAll(".archive-link");
 
   const observerOptions = {
     root: null,
@@ -46,6 +77,4 @@ const { posts } = Astro.props;
   }
 
   articles.forEach((el) => observer.observe(el));
-  section_headings.forEach((el) => observer.observe(el));
-  archive_links.forEach((el) => observer.observe(el));
 </script>

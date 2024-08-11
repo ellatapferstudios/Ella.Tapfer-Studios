@@ -1,24 +1,22 @@
 ---
 import { Image } from "astro:assets";
 const { path, alt, link } = Astro.props;
+
+// Ensure path is a string before checking if it ends with '.svg'
+const imagePath = String(path);
+const isSvg = imagePath.endsWith(".svg");
+const imageWidths = isSvg ? [1200] : [560, 980, 1200];
+const imageSizes = isSvg
+  ? "1200px"
+  : "(min-width: 1000px) 840px, calc(83.82vw + 19px)";
 ---
 
 {
   link ? (
     <a href={link}>
-      <Image
-        src={path}
-        alt={alt}
-        widths={[560, 980, 1200]}
-        sizes={`(min-width: 1000px) 840px, calc(83.82vw + 19px)`}
-      />
+      <Image src={path} alt={alt} widths={imageWidths} sizes={imageSizes} />
     </a>
   ) : (
-    <Image
-      src={path}
-      alt={alt}
-      widths={[560, 980, 1200]}
-      sizes={`(min-width: 1000px) 840px, calc(83.82vw + 19px)`}
-    />
+    <Image src={path} alt={alt} widths={imageWidths} sizes={imageSizes} />
   )
 }
