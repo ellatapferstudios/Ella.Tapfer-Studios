@@ -27,9 +27,8 @@ const { posts } = Astro.props;
 <div class="image-grid">
   {
     posts.map((post) => {
-      // Ensure the image path is treated as a string
-      const imagePath = "String(post.data.featuredImage)";
-      const isSvg = imagePath.endsWith(".svg");
+      const imagePath = String(post.data.featuredImage.src);
+      const isSvg = imagePath.includes(".svg");
       const imageWidths = isSvg
         ? [post.data.featuredImage.width]
         : [560, 960, post.data.featuredImage.width];
