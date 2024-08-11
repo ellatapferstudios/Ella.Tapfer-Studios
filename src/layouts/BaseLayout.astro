@@ -5,6 +5,10 @@ import ScrollToTopButton from "../components/ScrollToTopButton.astro";
 import "../styles/global.css";
 
 const { title, description, featuredImage } = Astro.props;
+
+// Determine if `featuredImage` is an object or a string and handle accordingly
+const imageUrl =
+  typeof featuredImage === "string" ? featuredImage : featuredImage?.src || "";
 ---
 
 <!doctype html>
@@ -30,7 +34,7 @@ const { title, description, featuredImage } = Astro.props;
     <meta property="twitter:url" content={Astro.url} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <!-- <meta property="twitter:image" content={featuredImage.src} /> -->
+    <meta property="twitter:image" content={featuredImage.src} />
 
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
@@ -41,6 +45,7 @@ const { title, description, featuredImage } = Astro.props;
   <body>
     <Header />
     <p>{featuredImage}</p>
+    <p>{imageUrl}</p>
     <main>
       <slot />
     </main>
