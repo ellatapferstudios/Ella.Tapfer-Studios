@@ -2,20 +2,9 @@
 import Header from "../components/SiteHeader.astro";
 import Footer from "../components/SiteFooter.astro";
 import ScrollToTopButton from "../components/ScrollToTopButton.astro";
-
-import { getImage } from "astro:assets";
 import "../styles/global.css";
 
 const { title, description, featuredImage } = Astro.props;
-
-import openGraphImageSrc from "../assets/placeholder-square.webp";
-
-// Generate the openGraphImage with a fixed width of 1200px
-const openGraphImage = await getImage({
-  src: openGraphImageSrc,
-  width: 1200,
-  format: "webp", // or 'png', 'webp', etc., depending on your preference
-});
 ---
 
 <!doctype html>
@@ -27,18 +16,22 @@ const openGraphImage = await getImage({
     <meta name="title" content={title} />
     <meta name="description" content={description} />
 
+    <!-- ... -->
+
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={openGraphImage.src} />
-    <!-- <meta property="og:image" content={featuredImage.src} /> -->
+    <meta property="og:image" content={featuredImage.src} />
+
+    <!-- ... -->
 
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={Astro.url} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <!-- <meta property="twitter:image" content={openGraphImage.src} /> -->
+    <!-- <meta property="twitter:image" content={featuredImage.src} /> -->
+
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
 
@@ -47,6 +40,7 @@ const openGraphImage = await getImage({
   </head>
   <body>
     <Header />
+    <p>{featuredImage}</p>
     <main>
       <slot />
     </main>
