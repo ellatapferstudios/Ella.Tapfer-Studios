@@ -368,3 +368,12 @@ h5 {
 .copyright-notice {
   font-size: 0.875em;
 }
+
+.copyright-notice a {
+  color: #555;
+  transition: opacity 0.3s;
+}
+
+.copyright-notice a:hover {
+  opacity: 0.5;
+}
