@@ -6,6 +6,6 @@ export default defineConfig({
   site: "https://astro-sky.vercel.app",
   integrations: [mdx(), sitemap()],
   build: {
-    assets: "media",
+    assets: "assets",
   },
 });
