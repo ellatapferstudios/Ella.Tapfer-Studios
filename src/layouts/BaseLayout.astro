@@ -22,7 +22,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={`${Astro.url}${featuredImage.src}`} />
+    <meta property="og:image" content={`${Astro.site}${featuredImage.src}`} />
+    <meta property="og:image" content={featuredImage.src} />
 
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={Astro.url} />
@@ -30,8 +31,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="twitter:description" content={description} />
     <meta
       property="twitter:image"
-      content={`${Astro.url}${featuredImage.src}`}
+      content={`${Astro.site}${featuredImage.src}`}
     />
+    <!-- <meta property="twitter:image" content={featuredImage.src} /> -->
 
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
@@ -41,7 +43,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <link
       rel="alternate"
       type="application/rss+xml"
-      href={`${Astro.url}/rss.xml`}
+      href={`${Astro.site}/rss.xml`}
     />
     <link rel="canonical" href={canonicalURL} />
   </head>

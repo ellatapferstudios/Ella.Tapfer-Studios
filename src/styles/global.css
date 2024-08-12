@@ -239,12 +239,8 @@ hr:before {
 /* Next / Previous */
 
 .post-navigation {
-  /* display: flex;
-  flex-direction: row; */
-  /* justify-content: space-between; */
-  /* max-width: 500px; */
   text-align: center;
-  margin: 0 auto;
+  margin: 3em auto 1em auto;
 }
 
 .post-navigation a {
