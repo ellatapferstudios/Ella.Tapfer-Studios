@@ -1,10 +1,16 @@
 ---
-import Layout from "../layouts/BaseLayout.astro";
-import FormattedDate from "../components/FormattedDate.astro";
-const { title, description, pubDate, featuredImage } = Astro.props;
+import Layout from "@layouts/BaseLayout.astro";
+import FormattedDate from "@components/FormattedDate.astro";
+const { title, description, pubDate, featuredImage, openGraphImage } =
+  Astro.props;
 ---
 
-<Layout title={title} description={description} featuredImage={featuredImage}>
+<Layout
+  title={title}
+  description={description}
+  featuredImage={featuredImage}
+  openGraphImage={openGraphImage}
+>
   <main class="standard-content-width">
     <article>
       <header>

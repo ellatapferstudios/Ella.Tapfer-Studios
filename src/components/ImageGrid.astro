@@ -31,7 +31,8 @@ const { posts } = Astro.props;
       const isSvg = imagePath.includes(".svg");
       const imageWidths = isSvg
         ? [post.data.featuredImage.width]
-        : [560, 960, post.data.featuredImage.width];
+        : // : [560, 960, post.data.featuredImage.width];
+          [600, 1200];
       const imageSizes = isSvg
         ? `${post.data.featuredImage.width}px`
         : "(min-width: 2120px) 599px, (min-width: 1300px) calc(26.25vw + 48px), (min-width: 540px) 45vw, 90vw";

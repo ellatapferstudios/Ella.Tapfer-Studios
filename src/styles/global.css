@@ -12,15 +12,6 @@ and also by both the post, project and about page layouts.
   src: url("/fonts/eb-garamond-v27-latin-regular.woff2") format("woff2");
 }
 
-/* eb-garamond-500 - latin */
-/* @font-face {
-  font-display: swap;
-  font-family: "EB Garamond";
-  font-style: normal;
-  font-weight: 500;
-  src: url("/fonts/eb-garamond-v27-latin-500.woff2") format("woff2");
-} */
-
 /* inter-regular - latin */
 @font-face {
   font-display: swap;
@@ -38,15 +29,6 @@ and also by both the post, project and about page layouts.
   font-weight: 500;
   src: url("/fonts/inter-v18-latin-500.woff2") format("woff2");
 }
-
-/* inter-600 - latin */
-/* @font-face {
-  font-display: swap;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 600;
-  src: url("../fonts/inter-v18-latin-600.woff2") format("woff2");
-} */
 
 /* inter-700 - latin */
 @font-face {
@@ -142,6 +124,10 @@ h3 {
   font-weight: 700;
 }
 
+h2 {
+  margin-top: 2em;
+}
+
 p {
   margin: 1.5em 0;
 }
@@ -220,6 +206,17 @@ hr:before {
   display: inline-block;
 }
 
+iframe {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border: 0;
+}
+
+pre {
+  font-size: 0.938em;
+  padding: 1em;
+  border-radius: 0.5em;
+}
 /* Screen Reader Only */
 
 .sr-only {
@@ -377,3 +374,8 @@ h5 {
 .copyright-notice a:hover {
   opacity: 0.5;
 }
+
+/* .iframe-embed iframe {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+} */

@@ -7,41 +7,41 @@
   line-height: 1.2;
   color: #111;
   margin: 2em 0 1.5em 0;
-  max-width: 1400px;
+  max-width: 1200px;
   padding-right: 0.5em;
 }
 
 h2 {
-  font-size: .875em;
+  font-size: 0.875em;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
 section {
-    margin-bottom: 5em;
+  margin-bottom: 5em;
 }
 
 .section-link {
-    color:#111;
-    font-weight: 650;
-    text-decoration: none;
-    font-size: .875em;
-    transition: opacity .3s;
-    padding: .25em 0;
+  color: #111;
+  font-weight: 650;
+  text-decoration: none;
+  font-size: 0.875em;
+  transition: opacity 0.3s;
+  padding: 0.25em 0;
 }
 
 .section-link::before {
-    content: "-> "
+  content: "-> ";
 }
 
 .section-link:hover {
-    opacity: .5;
+  opacity: 0.5;
 }
 
 .blog-list {
- margin-top: 3em;
- max-width: 500px;
+  margin-top: 3em;
+  max-width: 500px;
 }
 
 .blog-list article {
@@ -61,7 +61,7 @@ section {
   font-size: 1.25em;
   line-height: 1.4;
   display: inline;
-  transition: border 0.3s; */
+  transition: border 0.3s;
 }
 
 .blog-list article:hover a h3 {
@@ -70,13 +70,13 @@ section {
 
 .blog-list article:hover a p {
   color: #444;
-  transition: color .3s;
+  transition: color 0.3s;
 }
 
 .blog-list a {
   text-decoration: none;
   display: block;
-  color: #444
+  color: #444;
 }
 
 .blog-list a h3 {

@@ -1,0 +1,25 @@
+---
+title: 'Embedding Content'
+description: 'Learn how to embed content in your Astro Sky posts.'
+pubDate: 'Aug 3 2024'
+featuredImage: '@assets/placeholder-square.webp'
+---
+
+import YoutubeEmbed from "@components/YoutubeEmbed.astro";
+import IframeEmbed from "@components/IframeEmbed.astro";
+import CustomEmbed from "@components/CustomEmbed.astro";
+
+Here is an example using our custom YouTube embed component, which just needs the YouTube code and a title (for accessibility):
+
+
+<YoutubeEmbed code="2eew9k8FqM0" title="Radiance by Henry Egloff"/>
+
+Here is an example iframe embed that just needs a URL and a title:
+
+<IframeEmbed url="https://basic-three-js-starter.vercel.app/" title="Example iframe embed"/>
+
+And here is a custom embed example where the entire embed code is included, in this case from Sketchfab:
+
+<CustomEmbed>
+<div class="sketchfab-embed-wrapper"> <iframe title="Alien Character | A-pose" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/0cddf262de624347abfd64a56f2ce0c6/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/alien-character-a-pose-0cddf262de624347abfd64a56f2ce0c6?utm_medium=embed&utm_campaign=share-popup&utm_content=0cddf262de624347abfd64a56f2ce0c6" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Alien Character | A-pose </a> by <a href="https://sketchfab.com/emiliestabell?utm_medium=embed&utm_campaign=share-popup&utm_content=0cddf262de624347abfd64a56f2ce0c6" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> emiliestabell </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=0cddf262de624347abfd64a56f2ce0c6" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div>
+</CustomEmbed>

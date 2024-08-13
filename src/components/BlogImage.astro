@@ -5,7 +5,7 @@ const { path, alt, link } = Astro.props;
 // Ensure path is a string before checking if it ends with '.svg'
 const imagePath = String(path);
 const isSvg = imagePath.endsWith(".svg");
-const imageWidths = isSvg ? [1200] : [560, 980, 1200];
+const imageWidths = isSvg ? [1200] : [600, 1200, 1800, 2400];
 const imageSizes = isSvg
   ? "1200px"
   : "(min-width: 1000px) 840px, calc(83.82vw + 19px)";

@@ -2,18 +2,18 @@
 title: 'Adding Images'
 description: 'Learn how to add images to your posts.'
 pubDate: 'Aug 4 2024'
-featuredImage: ../../assets/placeholder-square.webp
+featuredImage: '@assets/placeholder-square.webp'
 ---
 
 Here is demonstration using our custom image component. It is mostly designed to show you how to add images in the backend, so it refers to lines of code that will only appear in the back end.
 
 First we need to import the general image component, being sure to keep empty lines before an after the following code:
 
-import BlogImage from "../../components/BlogImage.astro";
+import BlogImage from "@components/BlogImage.astro";
 
 Then we create a specific image reference being sure to give it a unique name:
 
-import myFirstImage from "/src/assets/placeholder-hd.webp";
+import myFirstImage from "@assets/placeholder.webp";
 
 Then we can use use the image component with our specific reference like so:
 
@@ -25,7 +25,7 @@ To make sure we meet accessiblity requirements the alt tag is a included as nece
 
 Here, to add another image we need to create another unique reference, eg:
 
-import mySecondImage from "/src/assets/placeholder-square.webp";
+import mySecondImage from "@assets/placeholder-square.webp";
 
 And then:
 
@@ -35,6 +35,6 @@ Now in the front end you should see an image above that link also links to the h
 
 You can also add images in SVG format like so.
 
-import mySVGImage from "/src/assets/placeholder-svg.svg";
+import mySVGImage from "@assets/placeholder-astro.svg";
 
 <BlogImage path={mySVGImage} alt="Image alt text goes here"/>

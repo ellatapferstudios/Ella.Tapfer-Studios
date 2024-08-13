@@ -1,7 +1,7 @@
 ---
-import Layout from "../../layouts/BaseLayout.astro";
+import Layout from "@layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
-import ImageGrid from "../../components/ImageGrid.astro";
+import ImageGrid from "@components/ImageGrid.astro";
 
 const {
   title = "Projects",
@@ -9,7 +9,7 @@ const {
   posts = await getCollection("projects"),
 } = Astro.props;
 
-import featuredImage from "../../assets/placeholder-square.webp";
+import featuredImage from "@assets/placeholder-square.webp";
 
 // Sort posts by updateDate if available, otherwise by pubDate
 const sortedProjects = posts.sort((a, b) => {

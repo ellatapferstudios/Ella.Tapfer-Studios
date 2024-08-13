@@ -1,0 +1,50 @@
+---
+import "@styles/global.css";
+
+const { title = "Page Not Found", description = "404. Page Not Found." } =
+  Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>{title}</title>
+    <meta charset="utf-8" />
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+  </head>
+  <body>
+    <div class="container">
+      <h2>{title}</h2>
+      <p>
+        Oops, the page you have requested couldn't be found. Maybe try checking
+        the URL or follow the link below:
+      </p>
+      <a href={Astro.site} class="home-link">Home Page</a>
+    </div>
+  </body>
+</html>
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    justify-content: center;
+  }
+  .home-link {
+    color: #555;
+    transition: opacity 0.3s;
+  }
+  .home-link:hover {
+    opacity: 0.5;
+  }
+</style>

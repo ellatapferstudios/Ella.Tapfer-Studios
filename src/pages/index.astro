@@ -1,9 +1,9 @@
 ---
-import Layout from "../layouts/BaseLayout.astro";
-import ImageGrid from "../components/ImageGrid.astro";
-import FormattedDate from "../components/FormattedDate.astro";
+import Layout from "@layouts/BaseLayout.astro";
+import ImageGrid from "@components/ImageGrid.astro";
+import FormattedDate from "@components/FormattedDate.astro";
 import { getCollection } from "astro:content";
-import "../styles/home.css";
+import "@styles/home.css";
 
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 const {
@@ -13,7 +13,7 @@ const {
   posts = await getCollection("blog"),
 } = Astro.props;
 
-import featuredImage from "../assets/placeholder-square.webp";
+import featuredImage from "@assets/placeholder-square.webp";
 
 // Sort posts by updateDate if available, otherwise by pubDate
 const sortedProjects = projects

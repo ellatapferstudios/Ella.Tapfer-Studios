@@ -1,12 +1,13 @@
 ---
-import Header from "../components/SiteHeader.astro";
-import Footer from "../components/SiteFooter.astro";
-import ScrollToTopButton from "../components/ScrollToTopButton.astro";
-import "../styles/global.css";
+import Header from "@components/SiteHeader.astro";
+import Footer from "@components/SiteFooter.astro";
+import ScrollToTopButton from "@components/ScrollToTopButton.astro";
+import "@styles/global.css";
 
-const { title, description, featuredImage } = Astro.props;
+const { title, description, featuredImage, openGraphImage } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImage = openGraphImage || featuredImage;
 ---
 
 <!doctype html>
@@ -22,15 +23,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={`${Astro.site}${featuredImage.src}`} />
-    <meta property="og:image" content={featuredImage.src} />
+    <meta property="og:image" content={ogImage.src} />
 
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={Astro.url} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={featuredImage.src} />
-    <!-- <meta property="twitter:image" content={featuredImage.src} /> -->
+    <meta property="twitter:image" content={ogImage.src} />
 
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
@@ -46,10 +45,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   </head>
   <body>
     <Header />
-
-    <main>
-      <slot />
-    </main>
+    <slot />
     <Footer />
     <ScrollToTopButton />
   </body>
