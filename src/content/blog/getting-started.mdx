@@ -8,7 +8,29 @@ featuredImage: '@assets/placeholder-square.webp'
 ## Basic Configuration
 
 1. Update the astro.config.mjs file to include your correct site url.
-2. Update the consts.ts file to include the correct site title and description.
+
+```mjs
+import { defineConfig } from "astro/config";
+import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
+
+export default defineConfig({
+  site: "https://astro-sky.vercel.app",
+  integrations: [mdx(), sitemap()],
+  build: {
+    assets: "assets",
+  },
+});
+```
+
+2. Update the consts.ts file (in the src directory) to include the correct site title and description.
+
+```ts
+export const SITE_TITLE = "Astro Sky";
+export const SITE_DESCRIPTION =
+  "Welcome to Astro Sky. A minimal and elegant portfolio theme built for Astro.";
+```
+
 3. Update the footer copyright text, and the social links in the SiteFooter component, eg:
 
 ```html
