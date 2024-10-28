@@ -5,9 +5,11 @@ pubDate: 'Aug 4 2024'
 featuredImage: '@assets/placeholder-square.webp'
 ---
 
-Here is demonstration using our custom image component. It is mostly designed to show you how to add images in the backend, so it refers to lines of code that will only appear in the back end.
+Here is demonstration using our custom image component. It is mostly designed to show you how to add images in the backend, so it <b>refers to lines of code that will only appear when viewed via the back end</b>.
 
-First we need to import the general image component, being sure to keep empty lines before an after the following code:
+First, prepare your images and save them in the appropriate format into the src/assets directory. Don't forget to make them the appropriate size (e.g. 1800px or 2400px wide) and if possible save them in Webp format. - They will be converted to webp format regardless but if you save them to webp format it will also speed up the upload.
+
+Next we need to import the general image component, being sure to keep empty lines before an after the following code:
 
 import BlogImage from "@components/BlogImage.astro";
 
