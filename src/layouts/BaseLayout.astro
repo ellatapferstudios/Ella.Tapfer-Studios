@@ -2,12 +2,17 @@
 import Header from "@components/SiteHeader.astro";
 import Footer from "@components/SiteFooter.astro";
 import ScrollToTopButton from "@components/ScrollToTopButton.astro";
+// import { processOgImage } from "../utils/og-image";
+import { SITE_TITLE } from "../consts";
+
 import "@styles/global.css";
 
-const { title, description, featuredImage, openGraphImage } = Astro.props;
+const { title, description, featuredImage } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const ogImage = openGraphImage || featuredImage;
+
+import { getImage } from "astro:assets";
+const openGraphImage = await getImage({ src: featuredImage, format: "png" });
 ---
 
 <!doctype html>
@@ -19,17 +24,22 @@ const ogImage = openGraphImage || featuredImage;
     <meta name="title" content={title} />
     <meta name="description" content={description} />
 
+    <meta property="og:site_name" content={SITE_TITLE} />
+    <meta property="og:title" content={`${title} | ${SITE_TITLE}`} />
+    <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage.src} />
-
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={Astro.url} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={ogImage.src} />
+    {
+      openGraphImage && (
+        <>
+          <meta property="og:image" content={openGraphImage.src} />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:image" content={openGraphImage.src} />
+        </>
+      )
+    }
+    <meta name="twitter:title" content={`${title} | ${SITE_TITLE}`} />
+    <meta name="twitter:description" content={description} />
 
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="generator" content={Astro.generator} />

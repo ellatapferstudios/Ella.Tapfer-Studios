@@ -6,12 +6,22 @@ const postsCollection = defineCollection({
     z.object({
       title: z.string(),
       description: z.string(),
-      pubDate: z.coerce.date(),
-      updatedDate: z.coerce.date().optional(),
       featuredImage: image(),
-      openGraphImage: image().optional(),
+      pubDate: z.coerce.date(),
     }),
 });
+
+// const postsCollection = defineCollection({
+//   type: "content",
+//   schema: ({ image }) =>
+//     z.object({
+//       title: z.string(),
+//       description: z.string(),
+//       pubDate: z.coerce.date(),
+//       updatedDate: z.coerce.date().optional(),
+//       featuredImage: image(),
+//     }),
+// });
 
 export const collections = {
   blog: postsCollection,

@@ -13,7 +13,7 @@ const {
   posts = await getCollection("blog"),
 } = Astro.props;
 
-import featuredImage from "@assets/placeholder-square.webp";
+import featuredImage from "../assets/placeholder-square.webp";
 
 // Sort posts by updateDate if available, otherwise by pubDate
 const sortedProjects = projects
