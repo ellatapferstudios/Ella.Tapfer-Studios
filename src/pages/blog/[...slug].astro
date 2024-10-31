@@ -66,28 +66,5 @@ const nextPost = sortedPosts[currentIndex - 1];
         }
       })()
     }
-
-    <!-- {
-      prevPost && (
-        <div class="next-previous-link">
-          <h4>Next Post:</h4>
-          <a href={`/blog/${prevPost.slug}/`} aria-label="Previous post">
-            <h5>{prevPost.data.title}</h5>
-            <p>{prevPost.data.description}</p>
-          </a>
-        </div>
-      )
-    }
-    {
-      nextPost && (
-        <div class="next-previous-link">
-          <h4>Previous Post:</h4>
-          <a href={`/blog/${nextPost.slug}/`} aria-label="Next post">
-            <h5>{nextPost.data.title}</h5>
-            <p>{nextPost.data.description}</p>
-          </a>
-        </div>
-      )
-    } -->
   </nav>
 </Post>

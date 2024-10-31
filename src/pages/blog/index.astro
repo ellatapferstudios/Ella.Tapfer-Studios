@@ -11,7 +11,7 @@ const {
 
 import featuredImage from "../../assets/placeholder-square.webp";
 
-// Sort posts by updateDate if available, otherwise by pubDate
+// Sort posts by by pubDate
 const sortedPosts = posts.sort((a, b) => {
   const dateA = a.data.updatedDate || a.data.pubDate;
   const dateB = b.data.updatedDate || b.data.pubDate;

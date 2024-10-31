@@ -4,35 +4,12 @@ import "../styles/image-grid.css";
 const { posts } = Astro.props;
 ---
 
-<!-- <div class="image-grid">
-  {
-    posts.map((post) => (
-      <article>
-        <a href={`/${post.collection}/${post.slug}/`}>
-          <Image
-            src={post.data.featuredImage}
-            alt={post.data.title + " - " + post.data.description}
-            widths={[560, 960, post.data.featuredImage.width]}
-            sizes="(min-width: 2120px) 599px, (min-width: 1300px) calc(26.25vw + 48px), (min-width: 540px) 45vw, 90vw"
-          />
-        </a>
-        <a href={`/${post.collection}/${post.slug}/`}>
-          <h3>{post.data.title}</h3>
-        </a>
-        <p>{post.data.description}</p>
-      </article>
-    ))
-  }
-</div> -->
 <div class="image-grid">
   {
     posts.map((post) => {
       const imagePath = String(post.data.featuredImage.src);
       const isSvg = imagePath.includes(".svg");
-      const imageWidths = isSvg
-        ? [post.data.featuredImage.width]
-        : // : [560, 960, post.data.featuredImage.width];
-          [600, 1200];
+      const imageWidths = isSvg ? [post.data.featuredImage.width] : [600, 1200];
       const imageSizes = isSvg
         ? `${post.data.featuredImage.width}px`
         : "(min-width: 2120px) 599px, (min-width: 1300px) calc(26.25vw + 48px), (min-width: 540px) 45vw, 90vw";

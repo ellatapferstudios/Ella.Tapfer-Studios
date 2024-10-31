@@ -2,17 +2,13 @@
 import Header from "@components/SiteHeader.astro";
 import Footer from "@components/SiteFooter.astro";
 import ScrollToTopButton from "@components/ScrollToTopButton.astro";
-// import { processOgImage } from "../utils/og-image";
 import { SITE_TITLE } from "../consts";
 
 import "@styles/global.css";
 
 const { title, description, featuredImage } = Astro.props;
-
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-
 import { getImage } from "astro:assets";
-//const openGraphImage = await getImage({ src: featuredImage, format: "png" });
 
 let openGraphImage;
 if (featuredImage) {

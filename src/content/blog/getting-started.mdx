@@ -7,7 +7,7 @@ featuredImage: '@assets/placeholder-square.webp'
 
 ## Basic Configuration
 
-1. Update the astro.config.mjs file to include your correct site url.
+1. Update the astro.config.mjs file to include your correct site url. - Your site will function to some degree without this, however this is used by things like the RSS feed and sitemap.
 
 ```mjs
 import { defineConfig } from "astro/config";
@@ -31,10 +31,10 @@ export const SITE_DESCRIPTION =
   "Welcome to Astro Sky. A minimal and elegant portfolio theme built for Astro.";
 ```
 
-3. Update the footer copyright text, and the social links in the SiteFooter component, eg:
+3. Update the footer copyright text, and the social links in the SiteFooter.astro component (in the components folder), eg:
 
 ```html
-<a href="### Your Instagram Link Here">
+<a href="paste your social links here, between the speech marks, starting with https://">
 ```
 
 ```html
@@ -47,5 +47,16 @@ export const SITE_DESCRIPTION =
 
 - Keep your featured images in the same dimensions.
 - Ideally provide your images at either 1800px width or 2400px for maximum quality
+
+## Open Graph Images
+
+Open graph images will be automatically generated from your featured images for your posts, and projects, however you may also want to add them manually to the main index.astro (home page) template and the index.astro templates for your blog and projects pages. Look for this line of code at the top of these files:
+
+```mjs
+import featuredImage from "../assets/placeholder-square.webp";
+```
+
+
+
 
 Otherwise please review the preceding posts for additional information and guidelines for working with the Astro Sky theme.
