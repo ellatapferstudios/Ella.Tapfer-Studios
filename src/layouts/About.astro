@@ -1,17 +1,23 @@
 ---
 import Layout from "@layouts/BaseLayout.astro";
-const { frontmatter } = Astro.props;
+//const { frontmatter } = Astro.props;
+
+const { title, description } = Astro.props;
+
+//import featuredImage from "../../assets/placeholder-square.webp";
 ---
 
-<Layout
+<!-- <Layout
   title={frontmatter.title}
   description={frontmatter.description}
   featuredImage={frontmatter.featuredImage}
->
+> -->
+<Layout title={title} description={description}>
   <main class="standard-content-width">
     <article>
       <header>
-        <h1>{frontmatter.title}</h1>
+        <h1>{title}</h1>
+        <!-- <h1>{frontmatter.title}</h1> -->
       </header>
       <slot />
     </article>

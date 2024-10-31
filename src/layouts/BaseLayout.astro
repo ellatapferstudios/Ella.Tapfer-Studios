@@ -12,7 +12,12 @@ const { title, description, featuredImage } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 import { getImage } from "astro:assets";
-const openGraphImage = await getImage({ src: featuredImage, format: "png" });
+//const openGraphImage = await getImage({ src: featuredImage, format: "png" });
+
+let openGraphImage;
+if (featuredImage) {
+  openGraphImage = await getImage({ src: featuredImage, format: "png" });
+}
 ---
 
 <!doctype html>
