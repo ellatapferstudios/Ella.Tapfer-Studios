@@ -1,0 +1,45 @@
+/*
+Custom styling for Ella
+*/
+
+/* Screen reader only (hide elements) */
+.intro-text {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+h2 {
+  background-color: #ff0000;
+  display: none;
+}
+
+* {
+  font-family: "EB Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: 440;
+}
+
+.blog-list h3 {
+  font-weight: 440;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+a.section-link {
+  font-weight: 440;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+a.section-link::before {
+  content: "";
+}

@@ -1,0 +1,54 @@
+---
+import { Image } from "astro:assets";
+import "../styles/image-grid-ella.css";
+const { posts } = Astro.props;
+---
+
+<div class="image-grid">
+  {
+    posts.map((post) => {
+      const imagePath = String(post.data.featuredImage.src);
+      const isSvg = imagePath.includes(".svg");
+      const imageWidths = isSvg ? [post.data.featuredImage.width] : [600, 1200];
+      const imageSizes = isSvg
+        ? `${post.data.featuredImage.width}px`
+        : "(min-width: 2120px) 599px, (min-width: 1300px) calc(26.25vw + 48px), (min-width: 540px) 45vw, 90vw";
+
+      return (
+        <article>
+          <a href={`/${post.collection}/${post.slug}/`}>
+            <Image
+              src={post.data.featuredImage}
+              alt={post.data.title + " - " + post.data.description}
+              widths={imageWidths}
+              sizes={imageSizes}
+            />
+            <h3>{post.data.title}</h3>
+          </a>
+        </article>
+      );
+    })
+  }
+</div>
+
+<script>
+  const articles = document.querySelectorAll("article");
+
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.1,
+  };
+
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+  function observerCallback(el) {
+    el.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in-view");
+      }
+    });
+  }
+
+  articles.forEach((el) => observer.observe(el));
+</script>
