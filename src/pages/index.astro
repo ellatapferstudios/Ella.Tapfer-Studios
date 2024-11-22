@@ -10,7 +10,7 @@ const {
   title = SITE_TITLE,
   description = SITE_DESCRIPTION,
   projects = await getCollection("projects"),
-  posts = await getCollection("blog"),
+  posts = await getCollection("diaries"),
 } = Astro.props;
 
 import featuredImage from "../assets/placeholder-square.webp";
@@ -49,7 +49,7 @@ const sortedPosts = posts
         {
           sortedPosts.map((post) => (
             <article>
-              <a href={`/blog/${post.slug}/`}>
+              <a href={`/diaries/${post.slug}/`}>
                 <h3 class="title">{post.data.title}</h3>
                 <p class="date">
                   <FormattedDate date={post.data.pubDate} />
