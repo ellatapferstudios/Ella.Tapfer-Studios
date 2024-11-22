@@ -44,6 +44,19 @@ and also by both the post, project and about page layouts.
   font-family: "Inter", sans-serif;
 }
 
+* {
+  font-family: "Baskervville", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+i {
+  font-family: "Baskervville", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+
 body {
   margin: 0;
   line-height: 1.6;
