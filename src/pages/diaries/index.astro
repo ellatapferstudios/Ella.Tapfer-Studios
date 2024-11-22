@@ -4,9 +4,9 @@ import { getCollection } from "astro:content";
 import FormattedDate from "@components/FormattedDate.astro";
 
 const {
-  title = "Blog",
-  description = "Blog description.",
-  posts = await getCollection("blog"),
+  title = "Diaries",
+  description = "My diaries.",
+  posts = await getCollection("diaries"),
 } = Astro.props;
 
 import featuredImage from "../../assets/placeholder-square.webp";
@@ -25,7 +25,7 @@ const sortedPosts = posts.sort((a, b) => {
     {
       sortedPosts.map((post) => (
         <article>
-          <a href={`/blog/${post.slug}/`}>
+          <a href={`/diaries/${post.slug}/`}>
             <h3 class="title">{post.data.title}</h3>
             <p class="date">
               <FormattedDate date={post.data.pubDate} />
