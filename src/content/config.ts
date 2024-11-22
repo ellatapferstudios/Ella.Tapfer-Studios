@@ -24,6 +24,6 @@ const postsCollection = defineCollection({
 // });
 
 export const collections = {
-  blog: postsCollection,
+  diaries: postsCollection,
   projects: postsCollection,
 };
