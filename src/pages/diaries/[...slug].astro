@@ -19,7 +19,7 @@ const { slug } = post;
 // Render the content of the current post
 const { Content } = await post.render();
 
-const posts = await getCollection("blog");
+const posts = await getCollection("diaries");
 
 // Sort posts by updateDate if available, otherwise by pubDate
 const sortedPosts = posts.sort((a, b) => {
@@ -43,7 +43,7 @@ const nextPost = sortedPosts[currentIndex - 1];
       (() => {
         if (nextPost) {
           return (
-            <a href={`/blog/${nextPost.slug}/`} class="next">
+            <a href={`/diaries/${nextPost.slug}/`} class="next">
               Next Post
             </a>
           );
@@ -57,7 +57,7 @@ const nextPost = sortedPosts[currentIndex - 1];
       (() => {
         if (prevPost) {
           return (
-            <a href={`/blog/${prevPost.slug}/`} class="previous">
+            <a href={`/diaries/${prevPost.slug}/`} class="previous">
               Previous Post
             </a>
           );
